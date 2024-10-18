@@ -12,6 +12,8 @@ backoff
 .. image:: https://img.shields.io/github/license/litl/backoff
     :target: https://github.com/litl/backoff/blob/master/LICENSE
 
+Forked from `litl/backoff <https://github.com/litl/backoff>`_.
+
 **Function decoration for backoff and retry**
 
 This module provides function decorators which can be used to wrap a
@@ -218,6 +220,8 @@ backoff behavior for different cases:
 
 .. code-block:: python
 
+    import python_backoff as backoff
+
     @backoff.on_predicate(backoff.fibo, max_value=13)
     @backoff.on_exception(backoff.expo,
                           requests.exceptions.HTTPError,
@@ -241,6 +245,8 @@ decorator functions can be passed callables which are evaluated at
 runtime to obtain the value:
 
 .. code-block:: python
+
+    import python_backoff as backoff
 
     def lookup_max_time():
         # pretend we have a global reference to 'app' here
@@ -276,6 +282,8 @@ implemented like so:
 
 .. code-block:: python
 
+    import python_backoff as backoff
+
     def backoff_hdlr(details):
         print ("Backing off {wait:0.1f} seconds after {tries} tries "
                "calling function {target} with args {args} and kwargs "
@@ -294,6 +302,8 @@ are called in turn. For example, you might provide a simple list of
 handler functions as the value of the ``on_backoff`` keyword arg:
 
 .. code-block:: python
+
+    import python_backoff as backoff
 
     @backoff.on_exception(backoff.expo,
                           requests.exceptions.RequestException,
@@ -328,6 +338,8 @@ asynchronous HTTP client/server library.
 
 .. code-block:: python
 
+    import python_backoff as backoff
+
     @backoff.on_exception(backoff.expo, aiohttp.ClientError, max_time=60)
     async def get_url(url):
         async with aiohttp.ClientSession(raise_for_status=True) as session:
@@ -361,6 +373,8 @@ looked up by name.
 
 .. code-block:: python
 
+    import python_backoff as backoff
+
    @backoff.on_exception(backoff.expo,
                          requests.exceptions.RequestException,
 			 logger='my_logger')
@@ -370,6 +384,8 @@ It is also supported to specify a Logger (or LoggerAdapter) object
 directly.
 
 .. code-block:: python
+
+    import python_backoff as backoff
 
     my_logger = logging.getLogger('my_logger')
     my_handler = logging.StreamHandler()

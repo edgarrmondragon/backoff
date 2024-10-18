@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backoff"
+name = "python-backoff"
 version = "2.2.1"
 description = "Function decoration for backoff and retry"
 authors = ["Bob Green <rgreen@aquent.com>"]
@@ -23,7 +23,7 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: Software Development :: Libraries :: Python Modules',
                'Topic :: Utilities']
 packages = [
-    { include = "backoff" },
+    { include = "python_backoff" },
 ]
 
 [tool.poetry.dependencies]

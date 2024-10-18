@@ -12,9 +12,9 @@ polling resources for externally generated content.
 For examples and full documentation see the README at
 https://github.com/litl/backoff
 """
-from backoff._decorator import on_exception, on_predicate
-from backoff._jitter import full_jitter, random_jitter
-from backoff._wait_gen import constant, expo, fibo, runtime, decay
+from python_backoff._decorator import on_exception, on_predicate
+from python_backoff._jitter import full_jitter, random_jitter
+from python_backoff._wait_gen import constant, expo, fibo, runtime, decay
 
 __all__ = [
     'on_predicate',

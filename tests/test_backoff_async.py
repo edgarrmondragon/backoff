@@ -5,7 +5,7 @@ import random
 
 import pytest
 
-import backoff
+import python_backoff as backoff
 from tests.common import _log_hdlrs, _save_target
 
 
@@ -665,7 +665,8 @@ async def test_on_exception_callable_gen_kwargs():
 
 
 @pytest.mark.asyncio
-async def test_on_exception_coro_cancelling(event_loop):
+async def test_on_exception_coro_cancelling():
+    event_loop = asyncio.get_running_loop()
     sleep_started_event = asyncio.Event()
 
     @backoff.on_predicate(backoff.expo)
